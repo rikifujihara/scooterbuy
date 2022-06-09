@@ -2,9 +2,9 @@ class Listing < ApplicationRecord
   belongs_to :user
 
   enum condition: {
-    awful: 1,
-    bad: 2,
-    ok: 3,
-    great: 4
+    awfully_bad: 1,
+    badder: 2,
+    ok_but_not_great: 3,
+    fine_i_guess: 4
   }
 end
