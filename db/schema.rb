@@ -53,10 +53,13 @@ ActiveRecord::Schema.define(version: 2022_06_09_092716) do
     t.string "title"
     t.text "description"
     t.integer "price"
+    t.integer "condition"
     t.bigint "user_id", null: false
-    t.boolean "sold"
+    t.bigint "category_id", null: false
+    t.boolean "sold", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_listings_on_category_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
@@ -75,5 +78,6 @@ ActiveRecord::Schema.define(version: 2022_06_09_092716) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "listings", "categories"
   add_foreign_key "listings", "users"
 end
