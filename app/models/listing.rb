@@ -1,5 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :user
+  has_one_attached :picture
 
   enum condition: {
     awfully_bad: 1,

@@ -1,7 +1,5 @@
 module ListingsHelper
     def format_text(string)
-        strings = string.split("_")
-        strings.map {|str|str.capitalize!}
-        return strings.join(" ")
+        strings = string.split("_").map {|str|str.capitalize!}.join(" ")
     end
 end
